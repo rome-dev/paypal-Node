@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PayPal API</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+  <link rel='stylesheet' href='/stylesheets/dataTables.bootstrap4.min.css' />
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center text-info mt-5 mb-5"><%= title %></h1>
+    <form action="/pay" method="POST">
+      <div class="row">
+        <div class="col-5 col-md-5">
+          <h2>CheckOut Amount: </h2>
+          <input type="number" class="form-control" name="amount" id="amount" placeholder="amount">
+        </div>
+        <div class="col-5 col-md-5">
+          <h2>Description: </h2>
+          <input type="text" class="form-control" name="description" id="description" placeholder="description">
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-3 col-md-3">
+          <button class="form-control btn btn-success mt-3">Check Out</button>
+        </div>
+      </div>
+    </form>
+    <div class="row mt-5">
+      <div class="col-3 col-md-3 plan-form mr-1 text-center">
+        <h2>Monthly Plan:</h2>
+        <p><strong class="currency">$100</strong>/<small>month</small> </p>
+        <a class="btn btn-info mb-4"
+          href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=38PENH9XSDUBL">
+          subscribe</a>
+      </div>
+      <div class="col-3 col-md-3 plan-form mr-1 text-center">
+        <h2>6 Months Plan:</h2>
+        <p><strong class="currency">$500</strong>/<small>6 months</small> </p>
+        <a class="btn btn-warning mb-4"
+          href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PT5M8673S2WEA">
+          subscribe</a>
+      </div>
+      <div class="col-3 col-md-3 plan-form text-center">
+        <h2>Annual Plan:</h2>
+        <p><strong class="currency">$800</strong>/<small>year</small> </p>
+        <a class="btn btn-danger mb-4"
+          href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MA46K5X876J9G">
+          subscribe</a>
+      </div>
+    </div>
+    <div class="row  mt-5">
+      <% if (result.result) {%>
+      <div class="row text-center">
+        <a href="/" class="btn btn-success">
+          Go to Home
+        </a>
+      </div>
+      <div class="col-12 col-md-12 mt-4">
+        <h4>The Result</h4>
+        <pre><%= result.result %></pre>
+      </div>
+      <%}%>
+    </div>
+  </div>
+</body>
+<!-- <script src="/javascripts/bootstrap.min.js"></script> -->
+<script src="/javascripts/jquery-3.3.1.js"></script>
+<script src="/javascripts/jquery.dataTables.min.js"></script>
+<script src="/javascripts/dataTables.bootstrap4.min.js"></script>
+<script src="/javascripts/sweetalert.min.js"></script>
+<script src="/javascripts/custom.js"></script>
+
+</html>
